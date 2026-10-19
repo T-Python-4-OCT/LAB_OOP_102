@@ -1,32 +1,16 @@
-from employee import Employee, FullTimeEmployee, PartTimeEmployee
-def main():
-    employee1 = FullTimeEmployee("Ahmed", 101, 8000)
-    employee2 = PartTimeEmployee("Sara", 102, 80, 50)
-    employee3 = FullTimeEmployee("Khalid", 103, 12000)
+from employee import FullTimeEmployee, PartTimeEmployee
 
-    employees = [employee1, employee2, employee3]
+employee1 = FullTimeEmployee("Ahmed", 101, 8000)
+employee2 = PartTimeEmployee("Sara", 102, 80, 50)
+employee3 = FullTimeEmployee("Khalid", 103, 12000)
 
-    total_salaries = 0
+employees = [employee1, employee2, employee3]
 
-    print("=== Employee Records & Salary Payout ===")
-    for employee in employees:
-        employee.display_info()
-        employee.pay_salary()
-        total_salaries += employee.calculate_salary()
-        print("-" * 40)
+total_salaries = 0
 
-    print(f"Total Salaries: {total_salaries:,} SAR\n")
+for employee in employees:
+    salary = employee.calculate_salary()
+    print(f"Employee: {employee.name} ID: {employee.get_employee_id()} Salary: {salary} SAR")
+    total_salaries += salary
 
-    print("=== Testing Abstraction & Constraints ===")
-    try:
-        invalid_employee = Employee("Fahad", 999)
-    except TypeError as e:
-        print(f"Caught expected error: {e}")
-
-    try:
-        employee1.__transfer_funds(8000)
-    except AttributeError:
-        print("Private method __transfer_funds successfully restricted")
-
-if __name__ == "__main__":
-    main()
+print(f"Total Salaries: {total_salaries} SAR")

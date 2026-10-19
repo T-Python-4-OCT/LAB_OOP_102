@@ -1,8 +1,5 @@
 class Employee:
     def __init__(self, name: str, employee_id: int):
-        if type(self) is Employee:
-            raise TypeError("Cannot instantiate abstract class Employee directly")
-
         if not name:
             raise ValueError("Name cannot be empty")
 
@@ -21,18 +18,10 @@ class Employee:
         self.__employee_id = employee_id
 
     def display_info(self):
-        print(f"Employee: {self.name} | ID: {self.get_employee_id()} | Salary: {self.calculate_salary()}")
+        print(f"Employee: {self.name} ID: {self.get_employee_id()}")
 
     def calculate_salary(self):
-        raise NotImplementedError("Subclasses must implement calculate_salary method")
-
-    def pay_salary(self):
-        amount = self.calculate_salary()
-        self.__transfer_funds(amount)
-        print(f"Salary of {amount} SAR deposited for {self.name}")
-
-    def __transfer_funds(self, amount: float):
-        return True
+        raise NotImplementedError("Subclasses must implement calculate_salary")
 
 
 class FullTimeEmployee(Employee):
