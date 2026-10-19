@@ -74,4 +74,12 @@ Total Salaries: 24000 SAR
 
 - Use encapsulation and any needed OOP principles.
 - Arrange your code in at least 2 files.
-- Do validation to make sure values are acceptable. 
+- Do validation to make sure values are acceptable. Names must be non-empty and
+  must not contain numbers; employee IDs must be positive integers; salary,
+  hours worked, and hourly rates must be finite, non-negative numbers. Monthly
+  salary per employee must not exceed 20,000 SAR.
+
+## Files
+
+- `employees.py` defines the abstract `Employee` class and its employee types.
+- `LAB_OOP_02.py` creates the sample employees and prints their salaries.
